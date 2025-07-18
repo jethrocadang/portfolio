@@ -99,7 +99,7 @@ export const projects: IProject[] = [
       },
     ],
     github: "link",
-    thumbnailUrl: "link",
+    thumbnailUrl: "./placeholder.svg",
     link: "link",
   },
 ];
