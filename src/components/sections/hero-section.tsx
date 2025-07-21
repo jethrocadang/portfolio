@@ -5,18 +5,18 @@ import { BgGridPattern } from "../ui/bg-grid-pattern";
 import { cn } from "@/lib/utils";
 
 // Animation variants for better maintainability
-const staggerContainer = {
+export const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.8,
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
     },
   },
 } as const;
 
-const staggerItem = {
+export const staggerItem = {
   hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
@@ -27,9 +27,27 @@ const staggerItem = {
   },
 } as const;
 
+// Scroll-triggered animation variants
+export const scrollReveal = {
+  hidden: { 
+    opacity: 0, 
+    y: 50,
+    scale: 0.9 
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+} as const;
+
 export default function HeroSection() {
   return (
-    <section className="relative mx-auto flex min-h-screen max-w-7xl items-center justify-between px-6 pt-20 lg:px-8">
+    <section className="relative mx-auto flex min-h-screen max-w-6xl items-center justify-between px-6 pt-20 lg:px-8">
       <BgGridPattern
         numSquares={30}
         maxOpacity={0.1}
@@ -40,10 +58,12 @@ export default function HeroSection() {
           "inset-x-50 inset-y-[-45%] h-[200%] skew-y-6",
         )}
       />
+      
       <motion.div
-        variants={staggerContainer}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={staggerContainer}
         className="flex flex-col justify-center lg:max-w-2xl"
       >
         <motion.p
@@ -54,21 +74,32 @@ export default function HeroSection() {
         </motion.p>
 
         <motion.h1
-          variants={staggerItem}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={scrollReveal}
           className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl dark:text-white"
         >
           Jethro R. Cadang.
         </motion.h1>
 
         <motion.h2
-          variants={staggerItem}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={scrollReveal}
+          transition={{ delay: 0.2 }}
           className="from-primary mb-2.5 bg-gradient-to-b to-green-500 bg-clip-text text-4xl lg:5xl font-bold text-transparent"
         >
           Fullstack Developer
         </motion.h2>
 
         <motion.p
-          variants={staggerItem}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={scrollReveal}
+          transition={{ delay: 0.4 }}
           className="text-accent-foreground/80 max-w-xl text-sm leading-tight mb-5"
         >
           Aspiring Software Engineer dedicated to mastering the art of web
@@ -76,7 +107,14 @@ export default function HeroSection() {
           to grow while preparing for my next career milestone.
         </motion.p>
 
-        <motion.div variants={staggerItem} className="pt-4">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={scrollReveal}
+          transition={{ delay: 0.6 }}
+          className="pt-4"
+        >
           <motion.a
             href="#projects"
             whileHover={{ scale: 1.05 }}
