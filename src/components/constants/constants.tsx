@@ -1,3 +1,4 @@
+import { icons } from "lucide-react";
 import {
   SiShadcnui,
   SiTypescript,
@@ -21,6 +22,9 @@ import {
   SiReactrouter,
   SiFigma,
   SiLaravel,
+  SiPhp,
+  SiMysql,
+  SiRadixui,
 } from "react-icons/si";
 
 export interface IContributor {
@@ -59,18 +63,21 @@ export const technologies = [
   { name: "Zod", icon: SiZod },
   { name: "TailwindCSS", icon: SiTailwindcss },
   { name: "Shadcnui", icon: SiShadcnui },
+  { name: "Radix UI", icon: SiRadixui },
   { name: "NodeJS", icon: SiNodedotjs },
   { name: "Prisma", icon: SiPrisma },
   { name: "Vercel", icon: SiVercel },
   { name: "MongoDB", icon: SiMongodb },
   { name: "Laravel", icon: SiLaravel },
+  { name: "PHP", icon: SiPhp },
+  { name: "MySQL", icon: SiMysql },
 ];
 
 export const projects: IProject[] = [
   {
     title: "Applicant Tracking and Employee Training System",
     description: "text",
-    technologies: [" Vite", "React JS", "Laravel","Spatie", "MySQl"],
+    technologies: [" Vite", "React JS", "Laravel", "Spatie", "MySQl"],
     contributors: [
       {
         avatar: "link",
