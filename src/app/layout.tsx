@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Jost } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
+  subsets: ["latin"],
+});
+
+const jost = Jost({
   subsets: ["latin"],
 });
 
@@ -18,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter} h-screen antialiased bg-background`}>{children}</body>
+      <body className={`${jost.className} bg-background h-screen antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
