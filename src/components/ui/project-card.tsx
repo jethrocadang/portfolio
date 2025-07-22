@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiGithub } from "react-icons/si";
 import { LuLink } from "react-icons/lu";
-import { AvatarGroup } from "../ui/avatar-group";
+// import { AvatarGroup } from "../ui/avatar-group";
 import { Badge } from "../ui/badge";
 import { IProject } from "../constants/constants";
 
