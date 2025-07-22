@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { Glow, GlowCapture } from "@codaworks/react-glow";
 import { IconType } from "react-icons";
+import { motion } from "motion/react";
 import { technologies } from "../constants/constants";
 
 export default function TechnologiesSection() {
@@ -9,62 +11,68 @@ export default function TechnologiesSection() {
   const [currentTech, setCurrentTech] = useState<{
     name: string;
     icon: IconType;
+    color: string;
   } | null>(null);
 
   return (
-    <section className="h-full bg-gradient-to-br from-gray-50 to-gray-100 px-6 py-16">
-      <div className="mx-auto max-w-6xl">
-        {/* Header */}
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-gray-900">
-            Technologies & Tools
-          </h2>
-          <div className="mt-12 text-center">
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-600">
-              I&apos;ve explored and experimented with during my learning
-              journey—each one a stepping stone toward deeper expertise.
-            </p>
-          </div>
+    <section className="flex w-full justify-center py-[4rem]">
+      <div className="relative grid w-full max-w-6xl gap-8">
+        <div>
+          Technologies <br />{" "}
+          <span className="text-textMuted text-[25px] font-normal">
+            I&apos;ve worked with
+          </span>
         </div>
-
-        {/* Technologies Grid */}
-        <div className="flex flex-wrap gap-2.5">
-          {technologies?.map((tech, index) => {
-            const IconComponent = tech.icon;
-            return (
-              <div
-                key={index}
-                className="group h-16 min-w-16 cursor-pointer rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-blue-300 hover:shadow-lg"
-                onMouseEnter={() => {
-                  setCurrentTech(tech);
-                  setIsContainerHovered(true);
-                }}
-                onMouseLeave={() => {
-                  setCurrentTech(null);
-                  setIsContainerHovered(false);
-                }}
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div className="mb-3 text-xl text-gray-700 transition-colors duration-300 group-hover:text-blue-600">
-                    <IconComponent />
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Current Tech Display */}
-        {currentTech && (
-          <div className="mt-12 text-center">
-            <div className="inline-flex items-center rounded-lg border border-blue-200 bg-blue-50 px-6 py-3">
-              <div className="mr-3 text-2xl text-blue-600">
-                <currentTech.icon />
-              </div>
-              <span className="text-lg font-medium text-blue-900">
-                {currentTech.name}
-              </span>
+        <GlowCapture>
+          <Glow>
+            <div
+              className="flex flex-wrap items-center gap-2"
+              onMouseEnter={() => setIsContainerHovered(true)}
+              onMouseLeave={() => {
+                setIsContainerHovered(false);
+                setCurrentTech(null);
+              }}
+            >
+              {technologies.map((technology, index) => (
+                <motion.div
+                  initial={{ y: 50, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.1, delay: 0.2 + index * 0.04 }}
+                  key={index}
+                  className="bg-foreground/2 glow:bg-primary/20 flex flex-col items-center justify-center gap-2 rounded-xl border border-[#484848]/40 p-4 hover:border-white"
+                  onMouseEnter={() => {
+                    if (isContainerHovered) {
+                      setCurrentTech(technology);
+                    }
+                  }}
+                >
+                  <technology.icon
+                    className="size-[35px] transition-all duration-300"
+                    style={{
+                      color:
+                        currentTech === technology && isContainerHovered
+                          ? technology.color
+                          : "rgba(255, 255, 255, 0.8)",
+                      opacity: !currentTech
+                        ? 1
+                        : currentTech === technology
+                          ? 1
+                          : 0.5,
+                    }}
+                  />
+                </motion.div>
+              ))}
             </div>
+          </Glow>
+        </GlowCapture>
+
+        {currentTech && (
+          <div className="absolute -top-[3rem] right-0 -z-10 grid gap-4 md:bottom-0">
+            <p className="text-center text-2xl font-semibold text-white/10">
+              {currentTech.name}
+            </p>
+            <currentTech.icon className="size-[200px] text-white/10 md:size-[300px]" />
           </div>
         )}
       </div>

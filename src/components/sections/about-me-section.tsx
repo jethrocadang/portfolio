@@ -12,6 +12,7 @@ export default function AboutMeSection() {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
+          className="relative z-20"
         >
           <motion.h1 variants={staggerItem} className="text-2xl font-bold">
             About Me
