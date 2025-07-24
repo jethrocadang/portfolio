@@ -3,7 +3,7 @@ import { buttonVariants } from "../ui/button";
 
 export function ContactInfoSection() {
   return (
-    <section className="flex min-h-screen items-center justify-center">
+    <section id="contact-info" className="flex min-h-screen items-center justify-center">
       <div className="flex flex-col items-center justify-center space-y-2.5">
         <h1 className="text-4xl font-bold">Get in Touch.</h1>
         <p className="text-center">

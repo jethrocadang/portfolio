@@ -6,15 +6,15 @@ import { staggerContainer, staggerItem } from "./hero-section";
 
 export default function AboutMeSection() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-12">
-      <CardSpotlight>
+    <section id="about-me" className="mx-auto max-w-6xl px-5 py-12">
+      <CardSpotlight className="p-6">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
           className="relative z-20"
         >
-          <motion.h1 variants={staggerItem} className="text-2xl font-bold">
+          <motion.h1 variants={staggerItem} className="text-2xl font-bold mb-2.5">
             About Me
           </motion.h1>
           <div className="space-y-6 text-sm leading-relaxed">

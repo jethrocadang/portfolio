@@ -29,10 +29,10 @@ export const staggerItem = {
 
 // Scroll-triggered animation variants
 export const scrollReveal = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 50,
-    scale: 0.9 
+    scale: 0.9,
   },
   visible: {
     opacity: 1,
@@ -47,18 +47,24 @@ export const scrollReveal = {
 
 export default function HeroSection() {
   return (
-    <section className="relative mx-auto flex min-h-screen max-w-6xl items-center justify-between px-6 pt-20 lg:px-8">
+    <section
+      id="hero"
+      className="relative mx-auto flex min-h-screen max-w-6xl items-center justify-between px-6 pt-20 lg:px-8"
+    >
       <BgGridPattern
         numSquares={30}
         maxOpacity={0.1}
         duration={3}
         repeatDelay={1}
         className={cn(
-          "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-          "inset-x-50 inset-y-[-45%] h-[200%] skew-y-6",
+          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]", 
+          "absolute inset-0 h-full w-full skew-y-6", 
+          "sm:[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]", 
+          "sm:inset-x-50 sm:inset-y-[-45%] sm:h-[200%]", 
+          "pointer-events-none -z-10", 
         )}
       />
-      
+
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -89,7 +95,7 @@ export default function HeroSection() {
           viewport={{ once: true, amount: 0.3 }}
           variants={scrollReveal}
           transition={{ delay: 0.2 }}
-          className="from-primary mb-2.5 bg-gradient-to-b to-green-500 bg-clip-text text-4xl lg:5xl font-bold text-transparent"
+          className="from-primary lg:5xl mb-2.5 bg-gradient-to-b to-green-500 bg-clip-text text-4xl font-bold text-transparent"
         >
           Fullstack Developer
         </motion.h2>
@@ -100,14 +106,14 @@ export default function HeroSection() {
           viewport={{ once: true, amount: 0.3 }}
           variants={scrollReveal}
           transition={{ delay: 0.4 }}
-          className="text-accent-foreground/80 max-w-xl text-sm leading-tight mb-5"
+          className="text-accent-foreground/80 mb-5 max-w-xl text-sm leading-tight"
         >
           Aspiring Software Engineer dedicated to mastering the art of web
           development. I&apos;m actively building applications that challenge me
           to grow while preparing for my next career milestone.
         </motion.p>
 
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -116,13 +122,13 @@ export default function HeroSection() {
           className="pt-4"
         >
           <motion.a
-            href="#projects"
+            href="#contact-info"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="group mt-8 w-max rounded border border-white/10 bg-gradient-to-b from-[#27272741_0.9%] to-[#171717] hover:border-white/20 hover:shadow-[inset_0_0_10px_#ffffff1a] p-2.5"
+            className="group mt-8 w-max rounded border border-white/10 bg-gradient-to-b from-[#27272741_0.9%] to-[#171717] p-2.5 hover:border-white/20 hover:shadow-[inset_0_0_10px_#ffffff1a]"
             aria-label="View Jethro's portfolio work"
           >
-            <span className="relative z-10">Get in touch</span> 
+            <span className="relative z-10">Get in touch</span>
             <motion.div
               className="bg-primary-dark absolute inset-0"
               initial={{ x: "-100%" }}
