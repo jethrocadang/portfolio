@@ -1,11 +1,18 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue, MotionProps } from "motion/react";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  MotionProps,
+} from "motion/react";
 import React, { useCallback, useEffect, useRef, forwardRef } from "react";
 
 import { cn } from "@/lib/utils";
 
-interface ColoredBorderProps extends MotionProps, Omit<React.HTMLAttributes<HTMLDivElement>, keyof MotionProps> {
+interface ColoredBorderProps
+  extends MotionProps,
+    Omit<React.HTMLAttributes<HTMLDivElement>, keyof MotionProps> {
   children?: React.ReactNode;
   className?: string;
   gradientSize?: number;
@@ -16,23 +23,28 @@ interface ColoredBorderProps extends MotionProps, Omit<React.HTMLAttributes<HTML
 }
 
 export const ColoredBorder = forwardRef<HTMLDivElement, ColoredBorderProps>(
-  ({
-    children,
-    className,
-    gradientSize = 200,
-    gradientColor = "#32a852",
-    gradientOpacity = 0.8,
-    gradientFrom = "#32a852",
-    gradientTo = "#32a852",
-    ...motionProps
-  }, ref) => {
+  (
+    {
+      children,
+      className,
+      gradientSize = 200,
+      gradientColor = "#a0f0d0", // Soft mint shimmer
+      gradientOpacity = 0.14,
+      gradientFrom = "#43e97b", // Light green
+      gradientTo = "#38f9d7",
+
+      ...motionProps
+    },
+    ref,
+  ) => {
     const cardRef = useRef<HTMLDivElement>(null);
     const mouseX = useMotionValue(-gradientSize);
     const mouseY = useMotionValue(-gradientSize);
 
     const handleMouseMove = useCallback(
       (e: MouseEvent) => {
-        const currentRef = ref && 'current' in ref ? ref.current : cardRef.current;
+        const currentRef =
+          ref && "current" in ref ? ref.current : cardRef.current;
         if (currentRef) {
           const { left, top } = currentRef.getBoundingClientRect();
           const clientX = e.clientX;
@@ -93,10 +105,10 @@ export const ColoredBorder = forwardRef<HTMLDivElement, ColoredBorderProps>(
     const content = (
       <>
         <motion.div
-          className="pointer-events-none absolute inset-0 rounded-[inherit] bg-border duration-300 group-hover:opacity-100"
+          className="bg-border pointer-events-none absolute inset-0 rounded-[inherit] duration-300 group-hover:opacity-100"
           style={{ background: gradientBackground }}
         />
-        <div className="absolute inset-px rounded-[inherit] bg-background" />
+        <div className="bg-background absolute inset-px rounded-[inherit]" />
         <motion.div
           className="pointer-events-none absolute inset-px rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           style={{
@@ -114,12 +126,8 @@ export const ColoredBorder = forwardRef<HTMLDivElement, ColoredBorderProps>(
       ...motionProps,
     };
 
-    return (
-      <motion.div {...commonProps}>
-        {content}
-      </motion.div>
-    );
-  }
+    return <motion.div {...commonProps}>{content}</motion.div>;
+  },
 );
 
 ColoredBorder.displayName = "ColoredBorder";

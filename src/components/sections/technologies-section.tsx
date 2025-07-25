@@ -4,12 +4,12 @@ import { useState } from "react";
 import { IconType } from "react-icons";
 import { technologies } from "../constants/constants";
 import { ColoredBorder } from "../ui/colored-border";
-import { useTheme } from "next-themes";
+import SectionTitle from "../ui/section-title";
+import Section from "../layout/section-layout";
 
 export default function TechnologiesSection() {
   const [isContainerHovered, setIsContainerHovered] = useState(false);
 
-  const { theme } = useTheme();
 
   const [currentTech, setCurrentTech] = useState<{
     name: string;
@@ -18,11 +18,11 @@ export default function TechnologiesSection() {
   } | null>(null);
 
   return (
-    <section id="technologies" className="flex w-full justify-center border px-8 ">
-      <div className="relative grid w-full max-w-6xl gap-8 border">
-        <div>
-          Technologies <br />
-          <span className="text-textMuted text-[25px] font-normal">
+    <Section id="technologies">
+      <div className="relative grid w-full gap- p-6">
+        <div className="mb-5">
+          <SectionTitle>Technologies</SectionTitle>
+          <span className="text-textMuted text-xl font-normal">
             I&apos;ve worked with
           </span>
         </div>
@@ -41,9 +41,8 @@ export default function TechnologiesSection() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.1, delay: 0.2 + index * 0.04 }}
-              gradientColor={theme === "dark" ? "#32a852" : "#D9D9D955"}
               key={index}
-              className="bg-foreground/2  flex flex-col items-center justify-center gap-2 rounded-xl border p-4"
+              className="bg-foreground/2 flex flex-col items-center justify-center gap-2 rounded-xl border p-4"
               onMouseEnter={() => {
                 if (isContainerHovered) {
                   setCurrentTech(technology);
@@ -77,6 +76,6 @@ export default function TechnologiesSection() {
           </div>
         )}
       </div>
-    </section>
+    </Section>
   );
 }

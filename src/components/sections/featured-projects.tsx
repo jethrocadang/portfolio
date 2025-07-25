@@ -1,17 +1,20 @@
+"use client"
 import { projects } from "../constants/constants";
+import Section from "../layout/section-layout";
 import ProjectCard from "../ui/project-card";
+import SectionTitle from "../ui/section-title";
 
 export default function FeaturedProjectsSection() {
   return (
-    <section id="projects" className="mx-auto flex h-full flex-col items-center w-full px-2 sm:px-4 py-8">
-      <div className="w-full max-w-6xl ">
-        <h1 className="text-2xl sm:text-3xl font-bold mb-4">Featured Projects</h1>
-        <div className="flex flex-col gap-4 px-0 sm:px-2.5">
+    <Section id="projects">
+      <div className="w-full p-6 space-y-5">
+        <SectionTitle>Featured Projects</SectionTitle>
+        <div className="flex flex-col items-center p-0  gap-3">
           {projects.map((project, idx) => (
             <ProjectCard key={idx} project={project} />
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

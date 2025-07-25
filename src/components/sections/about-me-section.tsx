@@ -3,10 +3,12 @@
 import { motion } from "motion/react";
 import { CardSpotlight } from "../ui/card-spotlight";
 import { staggerContainer, staggerItem } from "./hero-section";
+import SectionTitle from "../ui/section-title";
+import Section from "../layout/section-layout";
 
 export default function AboutMeSection() {
   return (
-    <section id="about-me" className="mx-auto max-w-6xl px-5 py-12">
+    <Section id="about-me">
       <CardSpotlight className="p-6">
         <motion.div
           variants={staggerContainer}
@@ -14,9 +16,7 @@ export default function AboutMeSection() {
           animate="visible"
           className="relative z-20"
         >
-          <motion.h1 variants={staggerItem} className="text-2xl font-bold mb-2.5">
-            About Me
-          </motion.h1>
+          <SectionTitle>About Me</SectionTitle>
           <div className="space-y-6 text-sm leading-relaxed">
             <motion.p variants={staggerItem}>
               Hello! I&apos;m{" "}
@@ -59,6 +59,6 @@ export default function AboutMeSection() {
           </div>
         </motion.div>
       </CardSpotlight>
-    </section>
+    </Section>
   );
 }

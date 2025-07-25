@@ -43,7 +43,7 @@ export const AvatarGroup = ({
     <>
       {items.map((item) => (
         <div
-          className="group relative -mr-4"
+          className="group relative -ml-9"
           key={item.name}
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
