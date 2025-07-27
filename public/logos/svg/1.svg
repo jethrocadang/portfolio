@@ -1,0 +1,19 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="500" height="500" fill="white"/>
+<ellipse cx="294.569" cy="260.091" rx="102.431" ry="100.909" fill="#D9D9D9"/>
+<ellipse cx="294.569" cy="260.091" rx="102.431" ry="100.909" fill="black"/>
+<ellipse cx="291.155" cy="256.727" rx="64.8727" ry="63.9091" fill="white"/>
+<ellipse cx="102.431" cy="100.909" rx="102.431" ry="100.909" transform="matrix(-1 0 0 1 306.861 159.182)" fill="#D9D9D9"/>
+<ellipse cx="102.431" cy="100.909" rx="102.431" ry="100.909" transform="matrix(-1 0 0 1 306.861 159.182)" fill="black"/>
+<ellipse cx="64.8727" cy="63.9091" rx="64.8727" ry="63.9091" transform="matrix(-1 0 0 1 272.718 192.818)" fill="white"/>
+<rect width="151.597" height="123.782" transform="matrix(-1 0 0 1 253.597 139)" fill="white"/>
+<rect x="245.403" y="139" width="151.597" height="123.782" fill="white"/>
+<rect x="192.139" y="139" width="114.722" height="177.6" fill="white"/>
+<rect x="204.431" y="139" width="90.1389" height="222" fill="white"/>
+<path d="M102 139H245.403V179.364H102V139Z" fill="black"/>
+<path d="M253.597 139H367C383.569 139 397 152.431 397 169V179.364H253.597V139Z" fill="black"/>
+<path d="M253.597 179.364H294.57V361H253.597V179.364Z" fill="black"/>
+<path d="M356.028 179.364H397V239.909H356.028V179.364Z" fill="black"/>
+<path d="M102 202H143L143.281 263H102.031L102 202Z" fill="black"/>
+<path d="M204.431 179.364H245.403V361H204.431V179.364Z" fill="black"/>
+</svg>

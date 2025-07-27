@@ -7,7 +7,7 @@ import TechnologiesSection from "@/components/sections/technologies-section";
 
 export default function Home() {
   return (
-    <div className="">
+    <>
       <ThemeProvider attribute={"class"} defaultTheme="dark">
           <HeroSection />
           <AboutMeSection />
@@ -15,6 +15,6 @@ export default function Home() {
           <FeaturedProjectsSection />
           <ContactInfoSection />
       </ThemeProvider>
-    </div>
+    </>
   );
 }

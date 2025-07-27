@@ -46,7 +46,7 @@ export interface IProject {
 export const navItems = ["About", "Projects", "Contact"];
 
 export const technologies = [
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { name: "TypeScript", icon: SiTypescript, color: "" },
   { name: "JavaScript", icon: SiJavascript, color: "" },
   { name: "CSS", icon: SiCss3, color: "" },
   { name: "HTML", icon: SiHtml5, color: "" },
@@ -213,37 +213,23 @@ export const projects: IProject[] = [
     contributors: [
       {
         id: 1,
-        name: "Kurtd Daniel Bigtas",
-        image: "/kurtd.jpeg",
-        role: "Full-stack Developer",
+        name: "John Michael Umali",
+        image: "/umali.JPG",
+        role: "Frontend Developer",
       },
       {
         id: 2,
-        name: "Raven Dela Rama",
-        image:
-          "https://res.cloudinary.com/drlztlr1m/image/upload/v1729331139/Hackathon/olsermjsgxepfzalyzur.jpg",
-        role: "Full-stack Developer",
-      },
-      {
-        id: 3,
         name: "Allen Magadia",
         image:
           "https://res.cloudinary.com/drlztlr1m/image/upload/v1735027541/Hackathon/eqnna3fxoebpd64a1hve.jpg",
-        role: "UI/UX Designer & Front-end Developer",
+        role: "UI/UX Designer",
       },
       {
-        id: 4,
-        name: "Johnmack Faeldonia",
-        image:
-          "https://res.cloudinary.com/drlztlr1m/image/upload/v1729331139/Hackathon/xb9t23uznqfop14olmvl.jpg",
-        role: "Project Manager & Front-end Developer",
-      },
-      {
-        id: 5,
+        id: 3,
         name: "Jethro Cadang",
         image:
           "https://res.cloudinary.com/drlztlr1m/image/upload/v1729331140/Hackathon/wpxmy7np9h5dfryp0not.jpg",
-        role: "Front-end Developer",
+        role: "Fullstack Developer",
       },
     ],
   },

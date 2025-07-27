@@ -20,7 +20,7 @@ export default function AboutMeSection() {
           <div className="space-y-6 text-sm leading-relaxed">
             <motion.p variants={staggerItem}>
               Hello! I&apos;m{" "}
-              <span className="font-semibold text-blue-600">Jethro Cadang</span>
+              <span className="font-semibold tex-primary">Jethro Cadang</span>
               , a fresh graduate with a BS in Information Systems. While
               I&apos;m still growing in my field, I&apos;m committed to becoming
               competitive through continuous learning and hands-on experience.

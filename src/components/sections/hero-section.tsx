@@ -3,6 +3,8 @@
 import { motion } from "motion/react";
 import { BgGridPattern } from "../ui/bg-grid-pattern";
 import { cn } from "@/lib/utils";
+import { AuroraText } from "../ui/aurora-text";
+import Section from "../layout/section-layout";
 
 // Animation variants for better maintainability
 export const staggerContainer = {
@@ -47,9 +49,9 @@ export const scrollReveal = {
 
 export default function HeroSection() {
   return (
-    <section
+    <Section
       id="hero"
-      className="relative mx-auto flex min-h-screen max-w-6xl items-center justify-between px-6 pt-20 lg:px-8"
+      className="relative mx-auto flex min-h-screen max-w-6xl items-center justify-between px-11"
     >
       <BgGridPattern
         numSquares={30}
@@ -95,9 +97,12 @@ export default function HeroSection() {
           viewport={{ once: true, amount: 0.3 }}
           variants={scrollReveal}
           transition={{ delay: 0.2 }}
-          className="from-primary lg:5xl mb-2.5 bg-gradient-to-b to-green-500 bg-clip-text text-4xl font-bold text-transparent"
+          className=" lg:5xl mb-2.5  text-4xl font-bold text-transparent"
         >
+          <AuroraText>
+
           Fullstack Developer
+          </AuroraText>
         </motion.h2>
 
         <motion.p
@@ -138,6 +143,6 @@ export default function HeroSection() {
           </motion.a>
         </motion.div>
       </motion.div>
-    </section>
+    </Section>
   );
 }

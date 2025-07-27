@@ -6,10 +6,10 @@ import SectionTitle from "../ui/section-title";
 
 export default function FeaturedProjectsSection() {
   return (
-    <Section id="projects">
+    <Section id="projects" className="bg-transparent  py-0">
       <div className="w-full p-6 space-y-5">
         <SectionTitle>Featured Projects</SectionTitle>
-        <div className="flex flex-col items-center p-0  gap-3">
+        <div className="flex flex-col items-center p-0  gap-3 ">
           {projects.map((project, idx) => (
             <ProjectCard key={idx} project={project} />
           ))}
